@@ -1,6 +1,8 @@
 # apollo
 不同类型项目接入apollo配置中心 demo
+
 一、spring boot:
+
 首先在启动类main方法中添加apollo相关配置属性
 System.setProperty("app.id", "insurancegateway");
 System.setProperty("env", "fat");
@@ -21,6 +23,7 @@ private Environment env;
 env.getProperty("spring.profiles.active")；
 
 二、普通java项目接入：
+
 (非maven项目)引入jar包：apollo-client.jar、apollo-core.jar、slf4j-api.jar(一定要加这个包，否则初始化apollo时会报错)、guava.jar、aopalliance.jar
 
 项目中添加监听器用于启动项目时设置apollo相关配置属性，如：
@@ -34,6 +37,7 @@ Config configDatabase = ConfigService.getConfig("database");//自己创建的nam
 dirver2 = configDatabase.getProperty("driver",null);
 
 三、spring项目
+
 1.在spring.xml文件中配置namespace时，启动项目本地C:\opt\data目录下生成approperties缓存文件
 2.不在spring.xml中配置namespace，api获取时才在C:\opt\data目录下生成缓存文件
 同二中普通java项目接入的配置一样，用监听器设置相关配置，利用API使用方法
