@@ -46,3 +46,7 @@ dirver2 = configDatabase.getProperty("driver",null);
 1.在spring.xml文件中配置namespace时，启动项目本地C:\opt\data目录下生成approperties缓存文件
 2.不在spring.xml中配置namespace，api获取时才在C:\opt\data目录下生成缓存文件
 同二中普通java项目接入的配置一样，用监听器设置相关配置，利用API使用方法
+
+注意事项：
+
+现有的demo暂未实现监听功能，如数据库连接改变时（可以实时获取到新的值），但是目前项目中暂未实现用新值进行重新连接数据库
