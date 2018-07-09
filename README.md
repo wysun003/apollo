@@ -8,16 +8,20 @@ System.setProperty("app.id", "insurancegateway");
 System.setProperty("env", "fat");
 
 并在类上添加如下注解：
+
 （1）只有默认的application namespace
+
 添加如下注解：
 @Configuration  
 @EnableApolloConfig()
 
 （2）除了默认的application，还有其他的多个namespace（如dev,database，dubbo)
+
 @Configuration  
 @EnableApolloConfig({"dev","database"，"dubbo"})//application默认会加载，可以不用添加在此，不区分大小写
 
 使用方法：
+
 @Autowired
 private Environment env;
 env.getProperty("spring.profiles.active")；
@@ -31,6 +35,7 @@ System.setProperty("app.id", "java-web-test");//设置应用项目appId
 System.setProperty("env", "fat");//设置使用环境
 
 使用方法（API使用方式）：
+
 Config config = ConfigService.getAppConfig();//默认namespace
 driver = config.getProperty("driver-class-name", null);
 Config configDatabase = ConfigService.getConfig("database");//自己创建的namespace为database
