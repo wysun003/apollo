@@ -2,6 +2,9 @@
 不同类型项目接入apollo配置中心 demo
 
 一、spring boot:
+在bootstrap阶段注入默认application namespace的配置示例，在application.properties文件中添加如下配置：
+
+apollo.bootstrap.enabled = true
 
 首先在启动类main方法中添加apollo相关配置属性
 System.setProperty("app.id", "insurancegateway");
