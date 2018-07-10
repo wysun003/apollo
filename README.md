@@ -46,9 +46,29 @@ dirver2 = configDatabase.getProperty("driver",null);
 
 三、spring项目
 
-1.在spring.xml文件中配置namespace时，启动项目本地C:\opt\data目录下生成approperties缓存文件
-2.不在spring.xml中配置namespace，api获取时才在C:\opt\data目录下生成缓存文件
-同二中普通java项目接入的配置一样，用监听器设置相关配置，利用API使用方法
+1.在spring.xml文件中配置namespace，相关配置如下：
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:apollo="http://www.ctrip.com/schema/apollo"
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd    
+                        http://www.springframework.org/schema/context    
+                        http://www.springframework.org/schema/context/spring-context.xsd    
+                        http://www.springframework.org/schema/mvc    
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                        http://www.ctrip.com/schema/apollo
+                        http://www.ctrip.com/schema/apollo.xsd">
+    <apollo:config/>
+    <apollo:config namespaces="database,test"/>   
+    ...
+    ...
+</beans>
+
+同二中普通java项目接入的配置一样，用监听器设置初始化相关appid、env 配置，利用API使用方法。
 
 注意事项：
 
