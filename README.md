@@ -13,7 +13,7 @@ System.setProperty("env", "fat");
 
 添加如下注解：
 @Configuration  
-@EnableApolloConfig()
+@EnableApolloConfig
 
 （2）除了默认的application，还有其他的多个namespace（如dev,database，dubbo)
 
@@ -36,9 +36,9 @@ System.setProperty("env", "fat");//设置使用环境
 
 使用方法（API使用方式）：
 
-Config config = ConfigService.getAppConfig();//默认namespace
+Config config = ConfigService.getAppConfig();//获取默认namespace
 driver = config.getProperty("driver-class-name", null);
-Config configDatabase = ConfigService.getConfig("database");//自己创建的namespace为database
+Config configDatabase = ConfigService.getConfig("database");//获取非的namespace，例如 database
 dirver2 = configDatabase.getProperty("driver",null);
 
 三、spring项目
